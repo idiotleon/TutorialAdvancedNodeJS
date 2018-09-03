@@ -19,3 +19,6 @@ withLog.execute(() => setTimeout(
     () => console.log('*** Executing Task ***'),
     500
 ));
+
+// withLog.on('begin', doOneThing);
+// withLog.on('begin', doAnotherThing);
