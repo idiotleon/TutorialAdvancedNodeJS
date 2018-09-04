@@ -19,14 +19,11 @@ class WithTime extends EventEmitter {
 const withTime = new WithTime();
 
 withTime.on('data', (data) => {
-    console.log(`Length:${data.length}`);
+    console.log(`Length: ${data.length}`);
 });
 
-process.once('uncaughtException', (err) => {
-    console.log(err);
-    // do some clean up
-    process.exit(1);    // exit anyway
+withTime.on('data', (data) => {
+    console.log(`Characters: ${data.toString().length}`);
 });
 
-withTime.execute(fs.readFile, '');
 withTime.execute(fs.readFile, __filename);
