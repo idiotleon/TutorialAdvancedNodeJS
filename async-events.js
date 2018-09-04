@@ -4,7 +4,6 @@ const EventEmitter = require('events');
 class WithTime extends EventEmitter {
     execute(asyncFunc, ...args) {
         console.time('execute');
-        this.emit('begin');
         asyncFunc(...args, (err, data) => {
             if (err) {
                 return this.emit('error', err);
@@ -13,14 +12,14 @@ class WithTime extends EventEmitter {
             this.emit('data', data);
             // report the time consumed
             console.timeEnd('execute');
-            this.emit('end');
         });
     }
 }
 
 const withTime = new WithTime();
 
-withTime.on('begin', () => console.log('About to execute'));
-withTime.on('end', () => console.log('Done with execute'));
+withTime.on('data', (data) => {
+    console.log(`Length:${data.length}`);
+});
 
 withTime.execute(fs.readFile, __filename);
