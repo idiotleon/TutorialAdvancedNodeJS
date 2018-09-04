@@ -22,7 +22,7 @@ withTime.on('data', (data) => {
     console.log(`Length: ${data.length}`);
 });
 
-withTime.on('data', (data) => {
+withTime.prependListener('data', (data) => {
     console.log(`Characters: ${data.toString().length}`);
 });
 
