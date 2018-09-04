@@ -26,4 +26,6 @@ withTime.prependListener('data', (data) => {
     console.log(`Characters: ${data.toString().length}`);
 });
 
+withTime.removeListener();
+
 withTime.execute(fs.readFile, __filename);
