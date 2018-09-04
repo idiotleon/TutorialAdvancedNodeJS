@@ -22,7 +22,7 @@ withTime.on('data', (data) => {
     console.log(`Length:${data.length}`);
 });
 
-process.on('uncaughtException', (err) => {
+process.once('uncaughtException', (err) => {
     console.log(err);
     // do some clean up
     process.exit(1);    // exit anyway
