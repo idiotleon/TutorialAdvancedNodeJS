@@ -22,4 +22,11 @@ withTime.on('data', (data) => {
     console.log(`Length:${data.length}`);
 });
 
+process.on('uncaughtException', (err) => {
+    console.log(err);
+    // do some clean up
+    process.exit(1);    // exit anyway
+});
+
+withTime.execute(fs.readFile, '');
 withTime.execute(fs.readFile, __filename);
