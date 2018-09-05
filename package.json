@@ -9,6 +9,7 @@
   "author": "Leon",
   "license": "ISC",
   "devDependencies": {
+    "dgram": "^1.0.1",
     "dns": "^0.2.2",
     "events": "^3.0.0",
     "fs": "0.0.1-security",
